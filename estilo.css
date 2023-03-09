@@ -6,7 +6,7 @@
 }
 section{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     min-height: 100vh;
     width: 100%;
@@ -15,13 +15,17 @@ section{
     background-position: center;
     background-size: cover;
 }
+
+.form-value{
+    border: 1px solid white;
+}
+
 .form-box{
-    position: relative;
-    width: 400px;
-    height: 600px;
+    position: absolute;
+    width: 40%;
+    height: 100%;
     background: transparent;
     border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 20px;
     backdrop-filter: blur(15px);
     display: flex;
     justify-content: center;
@@ -36,7 +40,7 @@ h2{
 .inputbox{
     position: relative;
     margin: 30px 0;
-    width: 310px;
+    width: 400px;
     border-bottom: 2px solid #fff;
 }
 .inputbox label{
@@ -63,48 +67,33 @@ top: -5px;
     padding:0 35px 0 5px;
     color: #fff;
 }
-.inputbox ion-icon{
-    position: absolute;
-    right: 8px;
-    color: #fff;
-    font-size: 1.2em;
-    top: 20px;
-}
 
-
-.forget label input{
-    margin-right: 3px;
-    
-}
-.forget label a{
-    color: #fff;
-    text-decoration: none;
-}
-.forget label a:hover{
-    text-decoration: underline;
-}
-button{
-    width: 100%;
-    height: 40px;
-    border-radius: 40px;
-    background: #fff;
-    border: none;
-    outline: none;
+/*Botões---------------------------------------------------------------------------------------------------------------------------------------------
+*/
+#clicavel{
     cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
+    }
+
+.conteudo-alinhamento{
+    padding: 10px;
+        
 }
-.register{
-    font-size: .9em;
-    color: #fff;
-    text-align: center;
-    margin: 25px 0 10px;
+
+.conteudo-servicos{
+	padding: 15px;
+	color: #000;
+	text-align: justify;
+	word-wrap: break-word;
+	min-height: 50px;
+	background-color: white;
+	min-width: 50px;
+	border: 5px solid #2e2e2e;
+	font-weight: bold;
 }
-.register p a{
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-}
-.register p a:hover{
-    text-decoration: underline;
+
+.conteudo-servicos h4{
+	text-align: center;
+	font-size: 1em;
+	padding-bottom: 15px;
+	text-transform: uppercase;
 }
