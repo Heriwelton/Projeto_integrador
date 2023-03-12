@@ -1,3 +1,5 @@
+/*Formatações de corpo---------------------------------------------------------------------------------------------------------------------------------------------
+*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 *{
     margin: 0;
@@ -8,38 +10,43 @@ section{
     display: flex;
     justify-content: left;
     align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    
-    background: url('background6.jpg')no-repeat;
+    background: url('imagens/beauty-salon.jpg')no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-.form-value{
-    border: 1px solid white;
-}
-
 .form-box{
     position: absolute;
-    width: 40%;
-    height: 100%;
+    height: 100vh;
     background: transparent;
-    border: 2px solid rgba(255,255,255,0.5);
-    backdrop-filter: blur(15px);
+    border-right: 1px solid #ffbf00;
+    backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
     align-items: center;
+    
+
 
 }
-h2{
-    font-size: 2em;
-    color: #fff;
+
+.row{
+    margin-right: 0px;
+}
+
+
+/*Formulario---------------------------------------------------------------------------------------------------------------------------------------------
+*/
+.logo-beauty-solutions{
     text-align: center;
 }
+
+.logo-beauty-solutions img{
+    height: 150px;
+}
+
 .inputbox{
     position: relative;
-    margin: 30px 0;
+    margin: 15px 0;
     width: 400px;
     border-bottom: 2px solid #fff;
 }
@@ -55,7 +62,7 @@ h2{
 }
 input:focus ~ label,
 input:valid ~ label{
-top: -5px;
+top: 2px;
 }
 .inputbox input {
     width: 100%;
@@ -66,34 +73,158 @@ top: -5px;
     font-size: 1em;
     padding:0 35px 0 5px;
     color: #fff;
+
+}
+
+.form-value{
+    padding: 10px;
+}
+
+
+.form-value h2{
+    
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000;
+    padding: 18px;
+}
+/*imagens do formulario---------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.inputbox i{
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    top: 20px;
 }
 
 /*Botões---------------------------------------------------------------------------------------------------------------------------------------------
 */
-#clicavel{
-    cursor: pointer;
-    }
 
-.conteudo-alinhamento{
-    padding: 10px;
+.custom-btn a{
+    padding: 10px 0 ;
+    width: 175px;
+    height: 70px;
+    background-color: transparent;
+    text-align: center;
+    margin:10px 15px;
+    color: white;  
+    text-shadow: 2px 2px 2px #000;
         
 }
 
-.conteudo-servicos{
-	padding: 15px;
-	color: #000;
-	text-align: justify;
-	word-wrap: break-word;
-	min-height: 50px;
-	background-color: white;
-	min-width: 50px;
-	border: 5px solid #2e2e2e;
-	font-weight: bold;
+.custom-btn .selecionado{
+    border: 2px solid #ffbf00;
+
 }
 
-.conteudo-servicos h4{
-	text-align: center;
-	font-size: 1em;
-	padding-bottom: 15px;
-	text-transform: uppercase;
+.a{
+    color: white;
+}
+
+.btn img{
+    height: 30px;
+}
+
+.btn{
+    color: white;
+}
+
+
+.custom-btn a:hover{
+    color: white;
+}   
+
+.custom-btn .alternativa:hover{
+    background-color: #ffbf00;
+    border: 2px solid white;
+}
+
+.btn-login{
+    background-color: #ffbf00;
+    padding: 5px;
+    width: 100%;
+    color: #000;
+    font-size: 1.2em;
+    border-radius: 0.50rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-login:hover{
+    background-color: #ffbf00;
+    padding: 5px;
+    width: 100%;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 0.50rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 2px #000;
+    border: 2px solid white;
+}
+
+/*Tratamento de erros----------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.exception{
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000;
+}
+
+/*redirecionar para cadastro---------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.create-account{
+    color: white;
+    text-shadow: 2px 2px 2px #000;
+}
+
+.create-account a{
+    color: #ffbf00;
+    text-decoration: none;
+}
+
+.create-account a:hover{
+    color: #ffbf00;
+    text-decoration: underline;
+    text-shadow: 1px 1px 1px #000;
+}
+
+/*area ilustrativa--------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.custom-box{
+    display: flex;
+    align-items: center;
+    background: url('imagens/fundo.png')no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.perfil-cliente{
+    display: flex;
+    align-items: center;
+    background: url('imagens/background-cliente.png')no-repeat;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.perfil-profissional{
+    display: flex;
+    align-items: center;
+    background: url('imagens/background-profissional.png')no-repeat;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
