@@ -2,7 +2,7 @@
 define('HOST','localhost');
   define('USER','root');
   define ('PASS', '');
-  define('BASE', 'beauty');
+  define('BASE', 'beauty_bank_cadastro');
 
   $conn = new mysqli(HOST,USER,PASS,BASE);
 

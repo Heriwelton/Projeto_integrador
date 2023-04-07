@@ -7,15 +7,7 @@
         header('Location:loginProfissional.php?login=erro');
     }
 
-    define('HOST','localhost');
-    define('USER','root');
-    define ('PASS', '');
-    define('BASE', 'beauty');
-    $conn = new mysqli(HOST,USER,PASS,BASE);
-
-    if (!$conn) {
-        die("Erro de conexão: " . mysqli_connect_error());
-    }
+    include_once("config.php"); 
 
     
     //variavel que verifica se a autenticacao foi realizada
@@ -27,7 +19,7 @@
 
     foreach($usuarios_app as $user) {
 
-        if($user['cnpj'] == $_POST['cnpj'] && $user['senha'] == $_POST['senha']) {
+        if($user['cnpj'] == $_POST['cnpj'] && $user['senha'] == md5($_POST['senha'])) {
             $usuario_autenticado = true;
         }
 
@@ -38,6 +30,7 @@
         $_SESSION['autenticado'] = 'SIM';
     } else {
         $_SESSION['autenticado'] = 'NAO';
+        header('Location: loginCliente.php?login=erro');
         
     }
 

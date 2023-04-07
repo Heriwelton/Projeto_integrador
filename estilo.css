@@ -214,3 +214,255 @@ top: 2px;
     height: 100%;
 }
 
+/*Menu inicial*-----------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+#corpo-menu-inicial {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background: url('imagens/fundo-menu-inicial.png')no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+}
+
+/*Menu de navegação / menu inicial*-------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+nav.navbar-transparente {
+	background: rgba(0, 0, 0, 0.8);
+	height: 100px;
+    border: 1px solid;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+	text-shadow: 3px 3px 3px black;
+    color: #fff;
+    font-size: 1.3em;
+    padding: 0px 54px;
+    text-transform: uppercase;
+
+}
+
+.navbar-dark .navbar-nav .nav-link:hover{
+	text-shadow: 3px 3px 3px black;
+    color: #ffbf00;
+    font-size: 1.3em;
+    text-transform: uppercase;
+
+}
+
+.navbar-dark .navbar-nav .nav-link:active{
+	text-shadow: 3px 3px 3px black;
+    color: #ffbf00;
+    font-size: 1.3em;
+    text-transform: uppercase;
+
+}
+
+.msg-recepcao{
+    position: relative;
+    text-shadow: 3px 3px 3px black;
+    color: #fff;
+    font-size: 1.3em;
+    padding: 0px 54px;
+    text-transform: uppercase;
+    list-style-type: none;
+    margin-right: 9%;
+}
+
+.msg-recepcao-a{
+    color: #ffbf00;
+    
+}
+.msg-recepcao-a:hover{
+    color: #ffbf00;
+    text-decoration: none;
+}
+
+.navbar-nav{
+    position: relative;
+    margin: 0px auto;
+    margin-left: 21%;
+    padding-bottom: 5px;
+
+}
+
+.navbar-nav a{
+    margin: 0px 10px;
+}
+
+.navbar-brand{
+    position: relative;
+    background: url('imagens/logo.png')no-repeat;
+    background-position: center;
+    background-size: 70%;
+    height: 80px;
+    bottom: 12%;
+    margin-left: 11%;
+}
+
+.navbar-brand h2{
+    position: relative;
+    left: -999px;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #000;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    text-shadow: none;
+  }
+  
+  .dropdown-item:hover, .dropdown-item:focus {
+    color: #ffbf00;
+    text-decoration: none;
+    background-color: #000;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 15%;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1.1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    font-weight: bold;
+  }
+
+  .active{
+    color: #ffbf00 !important;
+  }
+
+  .fa-solid, .fas {
+    font-weight: 900;
+    padding-right: 5px;
+
+}
+
+ .fa-user {
+    font-weight: 900;
+    padding-right: 9px;
+
+}
+
+/*serviços / menu inicial*-------------------------------------------------------------------------------------------------------------------------------------------
+*/
+.conteudo-servicos{
+	text-align: justify;
+	word-wrap: break-word;
+	background-color: #000;
+	border: 5px solid #fff;
+	font-weight: bold;
+    max-width: 24%;
+    transition: border 0.5s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.conteudo-servicos:hover{
+    border: 5px solid #ffbf00;
+    height: 100%;
+}
+
+
+/*botoes / serviços / menu inicial*-------------------------------------------------------------------------------------------------------------------------------------------
+*/
+.botao-imagens-menu-1 {
+    position: relative;
+    background: url('imagens/imagem-cabelo.PNG')no-repeat;
+    background-size: 100%;
+    min-height: 230px;
+    /*min-width: 469.75px;*/
+    min-width: 100%;
+    transition: min-height 0.2s;
+    display: inline-block; 
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
+
+
+
+.botao-imagens-menu-2{
+    position: relative;
+    background: url('imagens/imagem-unha.PNG')no-repeat;
+    background-size: 100%;
+    min-height: 230px;
+    /*min-width: 469.75px;*/
+    min-width: 100%;
+    transition: min-height 0.2s;
+    display: inline-block; 
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
+
+
+
+.botao-imagens-menu-3{
+    position: relative;
+    background: url('imagens/imagem-maquiagem.PNG')no-repeat;
+    background-size: 100%;
+    min-height: 230px;
+    /*min-width: 469.75px;*/
+    min-width: 100%;
+    transition: min-height 0.2s;
+    display: inline-block; 
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
+
+/*Titulos / serviços / menu inicial*-------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.botao-imagens-menu-1:hover,.botao-imagens-menu-2:hover, .botao-imagens-menu-3:hover{
+    min-height: 245px;
+}
+
+.conteudo-titulo-servicos-1,.conteudo-titulo-servicos-2,.conteudo-titulo-servicos-3{
+    text-shadow: 3px 3px 3px black;
+    text-align: center;
+    color: #ffbf00;
+    text-transform: uppercase;
+}
+
+.conteudo-titulo-servicos-1{
+    right: 1.3%;
+}
+
+.conteudo-titulo-servicos-3{
+    left: 1.3%;
+}

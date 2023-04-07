@@ -47,7 +47,7 @@
                             <div class="inputbox">
                                 
                                 <i class="fa-solid fa-file "></i>
-                                <input type="text" name="cpfCliente" size="11" maxlength ="11" required>
+                                <input type="text" name="cpfCliente" id="cpf" required>
                                 <label>CPF</label>
                             </div>
                             <div class="inputbox">
@@ -61,6 +61,15 @@
                                 <p>Já possui conta? <a href="loginCliente.php">Entrar!</a></p>
                             </div>
                             
+                            <?php
+                                if(isset($_GET['login']) && $_GET['login'] == 'erro3' ) { ?>
+                                                        
+                                    
+                                <div class="exception">
+                                   CPF já cadastrado! tente outro!
+                                </div>
+                                    
+                            <?php } ?>
 
                             <button class="btn-login">
                                 Cadastrar
@@ -85,5 +94,13 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
+    <script src="js/jquery.mask.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+				$(document).ready(function(jQuery){
+				$("#cpf").mask('999.999.999-99');
+
+			})
+	</script>
 </body>
 </html>
