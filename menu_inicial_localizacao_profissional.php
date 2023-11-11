@@ -22,6 +22,8 @@
     }
     /*print_r($_SESSION["usuario"]);*/
 
+    $consulta = "SELECT * FROM  usuario WHERE id_Usuario = '". $_SESSION["idSalao"]. "'";
+    $sqlConsulta = $conn->query($consulta) or die ($mysqli->error);
 
 ?>
 
@@ -88,7 +90,7 @@
                       </div>
 		            </li>
                     <li class="nav-item" >
-		              <a href="#" class="nav-link active" >Localização</a>
+		              <a href="menu_inicial_localizacao_profissional.php" class="nav-link active" >Localização</a>
 		            </li>
 		        </ul>
                 <div class="d-none d-lg-block msg-recepcao">
@@ -128,11 +130,17 @@
 
                 <div class="col-5 caixa-funcionamento-localizacao ">
                   	<div class="conteudo-funcionamento align-self-center ">
-                      <h4>endereço cadastrado</h4><br>
-                      <h3>Rua: teste  numero: teste</h3>
-                      <h3>Bairro: teste </h3>
-                      <h3>Cidade: teste </h3>
-
+                      <h4>endereço cadastrado</h4>
+                        <div class="conteudo-cadastro">
+                            <img class="img-salon-localizacao" src="imagens/salon.png">
+                            <?php while($dadoConsulta = $sqlConsulta->fetch_array()){ ?>
+                            <h3>Rua: <span><?php echo $dadoConsulta["EnderecoUsuario"]?>  </span> numero: <span><?php echo $dadoConsulta["NumEdcUsuario"] ?></span></h3>
+                            <h3>Bairro: <span><?php echo $dadoConsulta["BairroUsuario"] ?></span> </h3>
+                            <h3>Cidade: <span><?php echo $dadoConsulta["CidadeUsuario"] ?></span> </h3>
+                            <h3>Estado: <span><?php echo $dadoConsulta["EstadoUsuario"] ?></span> </h3>
+                            <?php }?>
+                            <a class="btn-localizacao" href="editarCadastroProfissionalEndereco.php">Alterar endereço<i class="fa-solid fa-arrow-right"></i></a>
+                        </div>    
                        
                         
                   	</div>
@@ -140,10 +148,11 @@
 
                 <div class="col-7 caixa-funcionamento-localizacao"> 
                   <div class="conteudo-funcionamento align-self-center">
-                    <h4>Localização do seu salão</h4><br>
+
+                    <h4>Localização do seu salão</h4>
                     
                     <div id="map"></div>
-                    
+
                     <script>
                         var customLabel = {
                             restaurant: {
@@ -216,10 +225,11 @@
 
                         function doNothing() {}
                         </script>
+                        
                         <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDixYYt1vx-ibbfEFbVP8CNxPillYq2xXs&callback=initMap">
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaXzV-gTnX1vMaX8wdmHVf8neWMclcvQU&callback=initMap">
                     </script>
-                  	
+
                 </div>
 
             </div>           

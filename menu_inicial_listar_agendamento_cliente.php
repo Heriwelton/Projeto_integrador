@@ -14,7 +14,6 @@
     $con = $conn->query($sql) or die($mysqli->error);
     $dado = $con->fetch_array();
     
-    /*print_r($_SESSION["usuario"]);*/
 
 ?>
 
@@ -56,7 +55,7 @@
 		     <div class="collapse navbar-collapse" id="navegacao">
 		        <ul class="navbar-nav ">
                     <li class="nav-item">
-		              <a href="menu_inicial.php" class="nav-link active">Serviços</a>
+		              <a href="menu_inicial.php" class="nav-link ">Serviços</a>
 		            </li>
 
 		            <li class="nav-item">
@@ -64,7 +63,7 @@
 		            </li>
 
                     <li class="nav-item" >
-		              <a href="menu_inicial_listar_agendamento_cliente.php" class="nav-link" >Agendamento</a>
+		              <a href="menu_inicial_listar_agendamento_cliente.php" class="nav-link active" >Agendamento</a>
 		            </li>
 		        </ul>
                 <div class="d-lg-block msg-recepcao dropdown">
@@ -97,45 +96,81 @@
 
         
         <!-- INICIO SERVIÇOS -->
-		<div class="col-12" > 
-            <div class="row justify-content-center">
-	    		<div class="col-3 conteudo-titulo-servicos-1">
-                    <h1 class="titulo-servicos">Cabelo</h1>
-	    		</div>
-                <div class="col-3 conteudo-titulo-servicos-2">
-	    			<h1 class="titulo-servicos">Unhas</h1>
-	    		</div>
-                <div class="col-3 conteudo-titulo-servicos-3">
-	    			<h1 class="titulo-servicos">Maquiagem</h1>
-	    		</div>
-	        </div>
+        <div class="row align-self-center">
 
-            <div class="row justify-content-md-center d-flex">
-                
-                <div class="conteudo-servicos align-self-center col-3" >   
-                       	
-                    <a class="botao-imagens-menu-1" href="menu_inicial_listar_servicos_cabelo.php">
-                        
-                    </a>
+<div class="col-12 conteudo-titulo-funcionamento">
+      <h1>Confira sua agenda!!</h1>
+</div>     
+
+<div class="col-12"> 
+
+  <div class="row  justify-content-md-center">
+
+      <div class="col-10 caixa-funcionamento-agenda">
+            <div class="conteudo-funcionamento align-self-center ">
+            <?php
+
+                $sqlAgenda = "SELECT * FROM `agendamento` WHERE id_cliente = '" . $_SESSION["idCliente"] . "'";
+                $resAgenda = $conn->query($sqlAgenda)or die($mysqli->error);
+
+                if($resAgenda->num_rows == 0) { ?> 
+
+                <div class="recepcao-cliente-agenda">
+                    <h3>você não possui nenhum serviço marcado</h3>
                 </div>
 
-                <div class="conteudo-servicos align-self-center col-3 ml-md-4"> 
-                    <a class="botao-imagens-menu-2" href="menu_inicial_listar_servicos_unha.php" >
+            <?php }?>   
+            
+            <?php
 
-                        
-                    </a>
-                </div>
 
-				<div class="conteudo-servicos align-self-center col-3 ml-md-4"> 
-                    <a class="botao-imagens-menu-3" href="menu_inicial_listar_servicos_maquiagem.php">
+
+                if($resAgenda->num_rows > 0) { ?> 
+
+                <?php 
+                    $sqlAgenda = "SELECT * FROM `agendamento` WHERE id_cliente = '" . $_SESSION["idCliente"] . "'";
+                    $resAgenda = $conn->query($sqlAgenda)or die($mysqli->error);
+                    
+                    while($qtdAgenda = $resAgenda->fetch_array()){ 
+
+                        $dataFormatada= date("d/m/Y", strtotime($qtdAgenda["DataAgendamento"]));
                         
-                    </a>
-                </div>
+                        $sqlProfissional = "SELECT NomeProfissional FROM `profissional` WHERE id_Profissional = '{$qtdAgenda["id_Profissional"]}' ";
+                        $conProfissional = $conn->query($sqlProfissional) or die($mysqli->error);
+                        $qtdProfissional = $conProfissional->fetch_array();
+
+
+                        $sqlSalao = "SELECT NomeFantasiaSalao FROM `salao` WHERE id_Salao= '{$qtdAgenda["id_Salao"]}' ";
+                        $conSalao = $conn->query($sqlSalao) or die($mysqli->error);
+                        $qtdSalao = $conSalao->fetch_array();
+
+                    ?>                               
+                    <div class="recepcao-cliente-agenda-preenchida">
+                        <hr class="hr-custom">                    
+                        <h3>id: <span><?php echo $qtdAgenda["id_Agendamento"] ?></span></h3>
+                        <h3>Tipo de serviço: <span><?php echo $qtdAgenda["TipoServico"] ?></span></h3>
+                        <h3>Serviço: <span><?php echo $qtdAgenda["Servico"] ?></span></h3>
+                        <h3>Valor: R$ <span><?php echo $qtdAgenda["ValorServico"] ?></span></h3>
+                        <h3>Profissional responsavel: <span><?php echo $qtdProfissional["NomeProfissional"] ?></span></h3>
+                        <h3>Salão responsavel: <span><?php echo $qtdSalao["NomeFantasiaSalao"] ?></span></h3>
+                        
+                        <h3>dia marcado: <span><?php echo $dataFormatada ?></span> as <span><?php echo $qtdAgenda["HoraAgendamento"] ?></span></h3>
+                        
+                    </div>
+
+                <?php }?>           
+            <?php }?>  
 
             </div>
+      </div>
 
-                      
-        </div>
+  </div>           
+
+</div> 
+
+
+            
+</div>          
         <!-- FIM SERVIÇOS -->  
         
         <!--INICIO MODAL EDITAR-CONTA -->   
@@ -163,8 +198,8 @@
 
                     <?php 
                         
-                        $sql_cliente = "SELECT NomeCliente,CPF_cliente from cliente WHERE CPF_cliente = '" . $_SESSION["usuario"] . "'";
-                        $sql_usuario = "SELECT SenhaUsuario, EmailUsuario, id_Usuario FROM usuario WHERE id_Usuario = '" . $_SESSION["idCliente"] . "'";
+                        $sql_cliente = "SELECT nomeCliente,CPF_cliente from cliente WHERE CPF_cliente = '" . $_SESSION["usuario"] . "'";
+                        $sql_usuario = "SELECT SenhaUsuario, EmailUsuario, CodUsuario FROM usuario WHERE CodUsuario = '" . $_SESSION["idCliente"] . "'";
 
                         $row_cliente = $conn->query($sql_cliente) or die($mysqli->error);
                         $row_usuario = $conn->query($sql_usuario) or die($mysqli->error);
@@ -182,7 +217,7 @@
                         
 						<div class="form-group">           
 							<label>Nome</label>
-							<input name="nome" type="text" class="form-control" value="<?php echo $dados_cliente["NomeCliente"]; ?>" >
+							<input name="nome" type="text" value="<?php echo $dados_cliente["nomeCliente"]; ?>" class="form-control">
 						</div>
 
 						<div class="form-group">

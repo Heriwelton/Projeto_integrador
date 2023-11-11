@@ -27,14 +27,12 @@
                             <div class="logo-beauty-solutions">
                                 <img src="imagens/Logo_beauty_solutions.png">
                             </div>
-
                             <h2>
                                 Criar conta Profissional
                             </h2>
-                                                
-                        
+                                                             
                         <form action="armazena_cadastro_salao.php" method="post">
-                        <input type="hidden" name="acao" value="cadastrar"> 
+                            <input type="hidden" name="acao" value="cadastrar"> 
                             <div class="inputbox">
                                 
                                 <i class="fa-solid fa-user"></i>
@@ -75,11 +73,22 @@
                                     
                             <?php } ?>
 
-                            <button class="btn-login">
+                            <?php
+                                if(isset($_GET['login']) && $_GET['login'] == 'erro5' ) { ?>
+                                                        
+                                    
+                                <div class="exception">
+                                   CNPJ já cadastrado! tente outro!
+                                </div>
+                                    
+                            <?php } ?>
+                                   
+                            <button class="btn-login" id="acesso">
                                 Cadastrar
-                            </button>                          
+                            </button>                  
 
                     </form>
+
                 </div>
             </div>
 

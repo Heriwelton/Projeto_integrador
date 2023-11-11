@@ -22,7 +22,6 @@
     }
     /*print_r($_SESSION["usuario"]);*/
 
-
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +69,7 @@
 		              <a href="menu_inicial.php" class="nav-link active">Inicio</a>
 		            </li>
                     <li class="nav-item" >
-		              <a href="#" class="nav-link" >Agenda</a>
+		              <a href="menu_inicial_agendamento_profissional.php" class="nav-link" >Agenda</a>
 		            </li>
 		            <li class="nav-item">
 		              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Listar</a>
@@ -132,7 +131,7 @@
 
             <div class="row  justify-content-md-center">
 
-                <div class="col-4 caixa-funcionamento ">
+                <div class="col-5 caixa-funcionamento ">
                   	<div class="conteudo-funcionamento align-self-center ">
                       <i class="fa-solid fa-clipboard-user"></i>
                   		<h4>Funcionarios</h4><br>
@@ -141,36 +140,91 @@
                                 <td>Total de funcionarios: </td>
                                 <td>
                                 <?php
-                                    $totalFuncionarios = "SELECT count(NomeProfissional) FROM profissional WHERE id_Salao = '" . $_SESSION["idSalao"] . "'";                    
+                                    $totalFuncionarios = "SELECT count(*) FROM profissional WHERE id_Salao = '" . $_SESSION["idSalao"] . "'";                    
                                     $conTotalFuncionarios = $conn->query($totalFuncionarios) or die($mysqli->error);                                    
                                     $mostrarTotalFuncionarios = $conTotalFuncionarios->fetch_array(); 
                                     
-                                    echo $mostrarTotalFuncionarios["count(NomeProfissional)"];
+                                    echo $mostrarTotalFuncionarios["count(*)"];
                                 ?>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td class="espacamento-table">Funcionarios disponiveis: </td>
-                                <td>???</td>
+                                <td class="espacamento-table">Funcionarios especialistas em cabelo: </td>
+                                <td>
+                                    <?php
+                                        $totalFuncionariosCabelo = "SELECT count(*) FROM profissional WHERE FuncaoProfissional LIKE '%cabelo%' and id_Salao = '" . $_SESSION["idSalao"] . "'";
+                                        $conTotalFuncionariosCabelo = $conn->query($totalFuncionariosCabelo) or die($mysqli->error); 
+                                        $mostrarTotalFuncionariosCabelo = $conTotalFuncionariosCabelo->fetch_array();
+
+                                        echo $mostrarTotalFuncionariosCabelo["count(*)"];
+
+                                    ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="espacamento-table">Funcionarios especialistas em Unha: </td>
+                                <td>
+                                    <?php
+                                        $totalFuncionariosUnha = "SELECT count(*) FROM profissional WHERE FuncaoProfissional LIKE '%unha%' and id_Salao = '" . $_SESSION["idSalao"] . "'";
+                                        $conTotalFuncionariosUnha = $conn->query($totalFuncionariosUnha) or die($mysqli->error); 
+                                        $mostrarTotalFuncionariosUnha = $conTotalFuncionariosUnha->fetch_array();
+
+                                        echo $mostrarTotalFuncionariosUnha["count(*)"];
+
+                                    ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="espacamento-table">Funcionarios especialistas em Maquiagem: </td>
+                                <td>
+                                    <?php
+                                        $totalFuncionariosMaquiagem = "SELECT count(*) FROM profissional WHERE FuncaoProfissional LIKE '%maquiagem%' and id_Salao = '" . $_SESSION["idSalao"] . "'";
+                                        $conTotalFuncionariosMaquiagem = $conn->query($totalFuncionariosMaquiagem) or die($mysqli->error); 
+                                        $mostrarTotalFuncionariosMaquiagem = $conTotalFuncionariosMaquiagem->fetch_array();
+
+                                        echo $mostrarTotalFuncionariosMaquiagem["count(*)"];
+
+                                    ?>
+                                </td>
                             </tr>
                         </table>   
                   	</div>
                 </div>
 
-                <div class="col-4 caixa-funcionamento"> 
+                <div class="col-5 caixa-funcionamento"> 
                   <div class="conteudo-funcionamento align-self-center">
                         <i class="fa-solid fa-user"></i>
                         <h4>Clientes</h4><br>
                         <table>
                             <tr>
                                 <td>Total de Clientes: </td>
-                                <td>???</td>
+                                <td>
+                                    <?php
+                                            $totalClientes = "SELECT count(*) FROM `agendamento` WHERE id_Salao = '" . $_SESSION["idSalao"] . "'";
+                                            $conTotalClientes = $conn->query($totalClientes) or die($mysqli->error); 
+                                            $mostrarTotalClientes = $conTotalClientes->fetch_array();
+
+                                            echo $mostrarTotalClientes["count(*)"];
+
+                                    ?>
+                                </td>
                             </tr>
 
                             <tr>
-                                <td class="espacamento-table">Clientes agendadados: </td>
-                                <td>???</td>
+                                <td class="espacamento-table">Clientes agendados: </td>
+                                <td>
+                                    <?php
+                                            $totalClientesAgendados = "SELECT count(*) FROM `agendamento` WHERE id_Salao = '" . $_SESSION["idSalao"] . "'";
+                                            $conTotalClientesAgendados = $conn->query($totalClientesAgendados) or die($mysqli->error); 
+                                            $mostrarTotalClientesAgendados = $conTotalClientesAgendados->fetch_array();
+
+                                            echo $mostrarTotalClientesAgendados["count(*)"];
+
+                                    ?>
+                                </td>
                             </tr>
                         </table>  
                   	</div>
@@ -211,7 +265,7 @@
                     <?php 
                     
                         $sql_salao = "SELECT NomeFantasiaSalao,CNPJ_Salao from salao WHERE CNPJ_Salao = '" . $_SESSION["usuarioSalao"] . "'";
-                        $sql_usuario = "SELECT SenhaUsuario, EmailUsuario, CodUsuario from usuario WHERE CodUsuario = '" . $_SESSION["idSalao"] . "'";
+                        $sql_usuario = "SELECT SenhaUsuario, EmailUsuario, id_Usuario from usuario WHERE id_Usuario = '" . $_SESSION["idSalao"] . "'";
 
                         $row_salao = $conn->query($sql_salao) or die($mysqli->error);
                         $row_usuario = $conn->query($sql_usuario) or die($mysqli->error);

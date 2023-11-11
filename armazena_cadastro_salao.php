@@ -2,7 +2,6 @@
 
     session_start(); 
 
-
     require "./bibliotecas/PHPMailer/Exception.Php";
     require "./bibliotecas/PHPMailer/OAuth.Php";
     require "./bibliotecas/PHPMailer/OAuthTokenProvider.Php";
@@ -24,6 +23,9 @@
       $salao->senha = md5($_POST["senhaSalao"]);
       $salao->cnpj = $_POST["cnpjSalao"];
       $salao->email = $_POST["emailSalao"];
+
+      $_SESSION["cnpj"] = $salao->cnpj = $_POST["cnpjSalao"];
+      $_SESSION["NomeFantasiaSalao"] = $salao->nome = $_POST["nomeSalao"];
 
     if(!isset($salao->nome)){
         $return = "Erro ao realizar o cadastro: Nome não identificado!";
@@ -48,15 +50,6 @@
         die;
     }
 
-    $sqlSelect = "SELECT * FROM salao WHERE CNPJ_Salao = '{$salao->cnpj}'";
-    $usuarios_existentes = $conn->query($sqlSelect);
-
-    if($usuarios_existentes->num_rows > 0){
-        header('Location: cadastroProfissional.php?login=erro3');
-        print "<script>location.href='cadastroCliente.php';</script>";
-        die;
-    }
-
     $sqlSelect_email = "SELECT EmailUsuario FROM usuario WHERE EmailUsuario = '{$salao->email}'";
     $email_existentes = $conn->query($sqlSelect_email);
 
@@ -65,13 +58,24 @@
         print "<script>location.href='cadastroProfissional.php';</script>";
         die;
     }
+
+    $sqlSelect = "SELECT * FROM salao WHERE CNPJ_Salao = '{$salao->cnpj}'";
+    $usuarios_existentes = $conn->query($sqlSelect);
+
+    if($usuarios_existentes->num_rows > 0){
+        header('Location: cadastroProfissional.php?login=erro5');
+        print "<script>location.href='cadastroProfissional.php';</script>";
+        die;
+    }
+
+
   
       // Insere os dados no banco de dados
       $sql = "INSERT INTO salao (NomeFantasiaSalao, CNPJ_Salao) VALUES ('$salao->nome', '$salao->cnpj')"; 
       $sql2 = "INSERT INTO usuario (SenhaUsuario, EmailUsuario) VALUES ('{$salao->senha}','{$salao->email}')";
       $usuarios_app = mysqli_query($conn, $sql);
       $usuarios_app2 = mysqli_query($conn, $sql2);
-
+    
       if ($usuarios_app && $usuarios_app2) {
           
 
@@ -146,7 +150,7 @@
                 
                 $mensagem->status['codigo_status'] = 1;
                 $mensagem->status['descricao_status'] = 'Email enviado com sucesso';
-                print "<script>alert('Cadastrado com Sucesso');</script>";
+                
     
         } catch (Exception $e) {
     
@@ -154,7 +158,8 @@
                 $mensagem->status['descricao_status'] = 'Não foi possivel enviar este e-mail! Por favor tente novamente mais tarde. Detalhes do erro' . $mail->ErrorInfo;
                 //alguma lógica que armazena algum possivel erro
         }
-        print "<script>location.href='loginProfissional.php';</script>";
+        print "<script>location.href='cadastroProfissionalEndereco.php';</script>";
+        print "<script>alert('Cadastrado com Sucesso');</script>";
 
       } else {
           echo "Erro ao realizar o cadastro: " . mysqli_error($conn);
@@ -168,4 +173,6 @@
     return $return;
 
 }
+
+
 ?>

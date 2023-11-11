@@ -11,6 +11,7 @@
     $servicos->codProfissional = $_POST["nomeProfissional"];
     $servicos->tipoServico = $_POST["tipoServico"];
     $servicos->valorServico = $_POST["valorServico"];
+    $servicos->servico = $_POST["servico"];
 
     echo '<pre>';
     print_r($servicos);
@@ -19,7 +20,8 @@
     $sql = "UPDATE `servico` SET 
                 TipoServico = '{$servicos->tipoServico}',
                 ValorServico = '{$servicos->valorServico}',
-                id_Profissional = '{$servicos->codProfissional}'
+                id_Profissional = '{$servicos->codProfissional}',
+                Servico = '{$servicos->servico}'
             WHERE 
                 id_Servico = ". $_SESSION["idServico"];    
     $servicosSQL = mysqli_query($conn, $sql);

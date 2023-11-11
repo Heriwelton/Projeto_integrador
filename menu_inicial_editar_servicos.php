@@ -97,7 +97,7 @@
                       </div>
 		            </li>
                     <li class="nav-item" >
-		              <a href="#" class="nav-link" >Localização</a>
+		              <a href="menu_inicial_localizacao_profissional.php" class="nav-link" >Localização</a>
 		            </li>
 		        </ul>
                 <div class="d-none d-lg-block msg-recepcao">
@@ -149,7 +149,7 @@
                             <h3>Nome do profissional</h3>
                             <select type="text" name="nomeProfissional" id="nomeProfissional" class="form-control" onchange="atualizaNomeProfissional()">
                             <?php
-                                $sqlProfissional = "SELECT * FROM profissional";
+                                $sqlProfissional = "SELECT * FROM profissional WHERE id_Salao = '" . $_SESSION["idSalao"] . "'";
                                 $resProfissional = $conn->query($sqlProfissional);
                                 $qtdProfissional = $resProfissional -> num_rows;
 
@@ -192,6 +192,12 @@
                             <select type="text" name="tipoServico" id="tipo_servico" class="form-control">
 
                             </select>
+                        </div>
+
+                        <div class="mb-3 espacamento-cadastro-funcionario">
+                            <h3>Serviço</h3>
+                            <input type="text" name="servico"  class="form-control">
+
                         </div>
 
                         <div class="mb-3 espacamento-cadastro-funcionario">

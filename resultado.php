@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("config.php");
 
 function parseToXML($htmlStr){
@@ -10,8 +11,10 @@ function parseToXML($htmlStr){
 	return $xmlStr;
 }
 
+
+
 // Select all the rows in the markers table
-$result_markers = "SELECT * FROM markers";
+$result_markers = "SELECT * FROM markers where id_Salao = '" . parseToXML($_SESSION["idSalao"])."'"; // editar aqui
 $resultado_markers = mysqli_query($conn, $result_markers);
 
 header("Content-type: text/xml");
@@ -27,12 +30,11 @@ while ($row_markers = mysqli_fetch_assoc($resultado_markers)){
   echo 'address="' . parseToXML($row_markers['address']) . '" ';
   echo 'lat="' . $row_markers['lat'] . '" ';
   echo 'lng="' . $row_markers['lng'] . '" ';
-  echo 'type="' . $row_markers['type'] . '" ';
   echo '/>';
 }
 
 // End XML file
 echo '</markers>';
 
-
+?>
 

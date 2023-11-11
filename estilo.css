@@ -7,7 +7,22 @@
     margin: 0;
     padding: 0;
     font-family: 'poppins',sans-serif;
+    
 }
+
+.hr-custom{
+   border: 1px solid #ffbf00; 
+   margin-top: 5px;
+}
+
+::-webkit-scrollbar{
+    width: 10px
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #ffbf00
+}
+
 section{
     display: flex;
     justify-content: left;
@@ -44,6 +59,21 @@ th{
 td{
     text-transform: uppercase;
     font-size: 1.1em;
+}
+
+.custom-map-control-button{
+    height: 6%;
+    font-size:1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 5px;
+    font-weight: bold;
+    margin-top: 1%;
+    
+}
+.gm-style-iw-d{
+    color: #000;
+    
 }
 
 /*Formulario---------------------------------------------------------------------------------------------------------------------------------------------
@@ -279,6 +309,16 @@ top: 2px;
 
 }
 
+#corpo-menu-inicial-cliente {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background: url('imagens/fundo-menu-inicial.png')no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+}
 /*Menu de navegação / menu inicial*-------------------------------------------------------------------------------------------------------------------------------------------
 */
 
@@ -323,6 +363,8 @@ nav.navbar-transparente {
     list-style-type: none;
     margin-right: 9%;
 }
+
+
 
 .msg-recepcao-a{
     color: #ffbf00;
@@ -542,23 +584,202 @@ nav.navbar-transparente {
 .caixa-funcionamento{
     text-shadow: 2px 2px 2px black;
 	padding: 5px;
-	min-height: 300px;
+	max-height: 62vh;
 	border: 2px solid #ffbf00;
 	min-width: 250px;
-	background-color: #292929;
+	background-color: #1C1C1C;
+    overflow-y: scroll;
+}
+
+.recepcao-cliente{
+    /*border: 1px solid red;*/
+    text-align: center;
+}
+
+.conteudo-funcionamento .conteudo-cadastro-cliente .recepcao-cliente i{
+    color: #ffbf00;
+    text-align: center;
+    position: relative;
+    font-size: 3em;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 2px black;
+    
+}
+
+.conteudo-funcionamento .conteudo-cadastro-cliente .recepcao-cliente h3{
+    margin-top: 4%;
+}
+
+
+.recepcao-cliente2{
+    /*border: 1px solid red;*/
+    text-align: center;
+}
+
+.conteudo-funcionamento .conteudo-cadastro-cliente .recepcao-cliente2 i{
+    color: #ffbf00;
+    text-align: center;
+    position: relative;
+    font-size: 3em;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 2px black;
+    
+}
+
+.conteudo-funcionamento .conteudo-cadastro-cliente .recepcao-cliente2 h3{
+    margin-top: 4%;
+}
+
+.recepcao-cliente2 {
+    margin-top: 20%;
 }
 
 .caixa-funcionamento-localizacao{
-    text-shadow: 2px 2px 2px black;
 	padding: 5px;
 	min-height: 89vh;
 	min-width: 250px;
 	background-color: transparent;
 }
 
+.btn-localizacao{
+    background-color: #ffbf00;
+    padding: 5px;
+    width: 65%;
+    color: #000;
+    font-size: 1.2em;
+    border-radius: 0.50rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10%;
+    text-align: center;
+    display: block;
+    border: 2px solid #000;
+
+}
+
+.btn-localizacao:hover{
+    background-color: #ffbf00;
+    padding: 5px;
+    width: 65%;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 0.50rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 2px #000;
+    border: 2px solid white;
+}
+
+.btn-localizacao-cliente{
+    background-color: #ffbf00;
+    padding: 5px;
+    width: 65%;
+    color: #000;
+    font-size: 1.2em;
+    border-radius: 0.50rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 2%;
+    text-align: center;
+    display: block;
+    border: 2px solid #000;
+
+}
+
+.btn-localizacao-cliente:hover{
+    background-color: #ffbf00;
+    padding: 5px;
+    width: 65%;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 0.50rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 2px #000;
+    border: 2px solid white;
+}
+
+
+.conteudo-cadastro{
+    width: 100%;
+    height: 70vh;
+    border: 3px solid #ffbf00;
+    background-color: #1C1C1C;
+    padding: 30px;  
+    padding-top: 10%;
+    
+}
+
+.conteudo-funcionamento .conteudo-cadastro i{
+
+    right: 8px;
+    font-size: 1.2em;
+    display: inline;
+    padding: 0px;
+    margin-left: 5%;
+    margin-top: 5%;
+    position: relative;
+}
+
+.conteudo-funcionamento .conteudo-cadastro-cliente i{
+    right: 8px;
+    font-size: 1.2em;
+    display: inline;
+    padding: 0px;
+    margin-left: 5%;
+    margin-top: 5%;
+    position: relative;
+}
+
+.conteudo-cadastro img{
+    text-align: center;
+    margin: 10px auto;
+    margin-bottom: 50px;
+    
+
+}
+
+.conteudo-cadastro-cliente{
+    width: 100%;
+    height: 70vh;
+    border: 3px solid #ffbf00;
+    background-color: #1C1C1C;
+    padding: 30px;  
+    padding-top: 5%;
+    overflow-y: scroll;
+    
+}
+
+.conteudo-cadastro-cliente img{
+    text-align: center;
+    margin: 10px auto;
+    margin-bottom: 50px;
+    
+
+}
+
+.img-salon-localizacao{
+    height: 130px;
+    padding: 15px;
+    display: block;
+
+   
+}
+
+.conteudo-funcionamento h4{
+    padding: 15px;
+}
+
 .caixa-funcionamento-listar{
 	border: 5px solid #ffbf00;
 }
+
 
 .conteudo-funcionamento{
 	padding: 15px;
@@ -567,8 +788,17 @@ nav.navbar-transparente {
 	word-wrap: break-word;
     text-transform: uppercase;
     font-size: 1.2em;
+    position: relative;
 
 
+}
+
+.caixa-funcionamento .formata-mapa text{
+    color: #000;
+}
+
+.conteudo-funcionamento span{
+    color: #ffbf00;
 }
 
 .conteudo-funcionamento h4{
@@ -603,7 +833,53 @@ nav.navbar-transparente {
     width: 550px;
     height: 50px;
 }
+/*Agendamento cliente----------------------------------------------------------------------------------------------------------------------------------------------
+*/
+.conteudo-titulo-agendamento-cliente{
+	color: #ffbf00;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+    margin-bottom: 20px;
 
+    
+}
+
+.caixa-funcionamento-agenda{
+    text-shadow: 2px 2px 2px black;
+	padding: 5px;
+	max-height: 62vh;
+    min-height: 62vh;
+	border: 2px solid #ffbf00;
+	min-width: 800px;
+    max-width: 800px;
+	background-color: #1C1C1C;
+    overflow-y: scroll;
+    
+}
+
+.recepcao-cliente-agenda{
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 3em;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 2px black;
+    margin: 0px auto;
+    margin-top: 20%;
+
+}
+
+.recepcao-cliente-agenda-preenchida{
+    color: #fff;
+    position: relative;
+    font-size: 3em;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 2px black;
+
+}
 /*editarCadastroProfissional----------------------------------------------------------------------------------------------------------------------------------------------
 */
 
@@ -612,12 +888,45 @@ nav.navbar-transparente {
 
 }
 
+.btn-voltar i{
+    position: relative;
+    bottom: 90%;
+    color: #ffbf00;
+}
+.btn-voltar i:hover{
+    position: relative;
+    bottom: 90%;
+    color: #fff;
+}
+.btn-voltar {
+    position: relative;
+    font-size: 1.2em;
+    color: #000;
+    font-weight: 400;
+    text-transform: uppercase;
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+}
+
 .btn-cadastro-funcionario{
     font-size: 1.2em;
-    text-shadow: 2px 2px 2px black;
+    color: #000;
+    font-weight: 400;
     text-transform: uppercase;
     background-color: #ffbf00;
     width: 220px;
+}
+
+.btn-cadastro-funcionario:hover{
+    font-size: 1.2em;
+    text-shadow: 2px 2px 2px black;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #ffbf00;
+    width: 220px;
+    border: 2px solid #fff;
 }
 
 /*Configuração do mapa*-------------------------------------------------------------------------------------------------------------------------------------------

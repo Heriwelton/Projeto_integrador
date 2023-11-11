@@ -9,7 +9,7 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 //Salvar os dados no bd
 $result_markers = "INSERT INTO markers(name, address, lat, lng, type) 
 				VALUES 
-				('".$dados['name']."', '".$dados['address']."', '".$dados['lat']."', '".$dados['lng']."', '".$dados['type']."')";
+				('".$dados['name']."', '".$dados['address']."', '".$dados['lat']."', '".$dados['lng']."')";
 
 $resultado_markers = mysqli_query($conn, $result_markers);
 if(mysqli_insert_id($conn)){

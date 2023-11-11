@@ -86,7 +86,7 @@
                       </div>
 		            </li>
                     <li class="nav-item" >
-		              <a href="#" class="nav-link" >Localização</a>
+		              <a href="menu_inicial_localizacao_profissional.php" class="nav-link" >Localização</a>
 		            </li>
 		        </ul>
                 <div class="d-none d-lg-block msg-recepcao">

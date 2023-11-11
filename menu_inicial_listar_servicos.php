@@ -86,7 +86,7 @@ if($dadoID["salaoID"] == true){
                   </div>
                 </li>
                 <li class="nav-item" >
-                  <a href="#" class="nav-link" >Localização</a>
+                  <a href="menu_inicial_localizacao_profissional.php" class="nav-link" >Localização</a>
                 </li>
             </ul>
             <div class="d-none d-lg-block msg-recepcao">
@@ -105,7 +105,6 @@ if($dadoID["salaoID"] == true){
 
                     <div class="dropdown-menu ">
                         <a href="" class="dropdown-item" data-toggle="modal" data-target="#modal-editar"><i class="fa-solid fa-user"></i>Editar acesso</a>
-                        <a href="" class="dropdown-item"><i class="fa-solid fa-house"></i>Configurar endereço</a>
                         <a href="encerrar_sessao.php" class="dropdown-item"><i class="fa-solid fa-share-from-square"></i>Encerrar sessão </a>
                         
                     </div>
@@ -142,13 +141,15 @@ if($dadoID["salaoID"] == true){
                     print "<table class='table table-hover table-striped table-bordered'>";
                     print "<tr>";
                     print "<th>Tipo de serviço</th>";
-                    print "<th>valor do serviço</th>";
+                    print "<th>Serviço</th>";
+                    print "<th>Valor do serviço</th>";
                     print "<th>Funcionario</th>";
                     print "<th>Ações</th>";
                     print "<tr>";
                     while($row = $resServicos->fetch_object()){
                     print "<tr>";
                     print "<td>".$row->TipoServico; "</td>";
+                    print "<td>".$row->Servico; "</td>";
                     print "<td>".$row->ValorServico; "</td>";
 
                     $nomeProfissionalSQL = "SELECT NomeProfissional from profissional WHERE id_Profissional = '{$row->id_Profissional}'";

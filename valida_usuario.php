@@ -9,7 +9,7 @@
     include_once("config.php"); 
 
     /*query pra selecionar o id no bd*/
-    $sql3 = "SELECT CodCliente as usuario from cliente WHERE CPF_cliente = '" . $_SESSION["usuario"] . "'"; //seleciona o nome do usuario de acordo com o cpf
+    $sql3 = "SELECT id_Cliente as usuario from cliente WHERE CPF_cliente = '" . $_SESSION["usuario"] . "'"; //seleciona o nome do usuario de acordo com o cpf
     $con3 = $conn->query($sql3) or die($mysqli->error);
     $dadoID = $con3->fetch_array();
     if($dadoID["usuario"] == true){
@@ -26,19 +26,15 @@
     var_dump($dadoCpf);
     
 
-
-
     
-    $senha = "SELECT SenhaUsuario as senha FROM usuario WHERE CodUsuario = '" . $_SESSION["idCliente"]."'";
+    $senha = "SELECT SenhaUsuario as senha FROM usuario WHERE id_Usuario = '" . $_SESSION["idCliente"]."'";
     $conSenha = $conn->query($senha) or die($mysqli->error);
     $dadoSenha = $conSenha->fetch_array();
     if($dadoSenha["senha"]){
         $_SESSION["senhaAtual"] = $dadoSenha["senha"];
         
     }
-    echo '<pre>';
-    print_r($_SESSION);
-    echo '<pre/>';
+
 
     echo '<br/>';
 
@@ -59,10 +55,9 @@
         print_r(md5($_POST['senha']));
         echo '<br/>';
         print_r($_SESSION['idCliente']);
-        //print_r( $_SESSION["email_usuario"]);
+        print_r( $_SESSION["email_usuario"]);
 
         
-
 
 
 

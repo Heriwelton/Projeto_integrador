@@ -93,7 +93,7 @@
                       </div>
 		            </li>
                     <li class="nav-item" >
-		              <a href="#" class="nav-link" >Localização</a>
+		              <a href="menu_inicial_localizacao_profissional.php" class="nav-link" >Localização</a>
 		            </li>
 		        </ul>
                 <div class="d-none d-lg-block msg-recepcao">
@@ -184,16 +184,20 @@
                         </script>       
 
                         <div class="mb-3 espacamento-cadastro-funcionario">
-                            <h3>Tipo de serviço</h3>
+                            <h3>Especialidade</h3>
                             <select type="text" name="tipoServico" id="tipo_servico" class="form-control">
 
                             </select>
                         </div>
 
                         <div class="mb-3 espacamento-cadastro-funcionario">
+                            <h3>Serviço</h3>
+                            <input type="text" name="servico"  class="form-control" >
+                        </div>
+
+                        <div class="mb-3 espacamento-cadastro-funcionario">
                             <h3>Valor</h3>
                             <input type="text" name="valorServico"  class="form-control" id="custo" >
-
                         </div>
 
                         <div class="mb-3">

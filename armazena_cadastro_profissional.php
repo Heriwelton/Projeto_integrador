@@ -7,9 +7,6 @@
         header('Location: loginProfissional.php?login=erro2');
     }
 
-    echo '<pre>';
-    print_r($_SESSION);
-    echo '<pre/>';
 
     $profissional = new stdClass();
     $profissional->nomeProfissional = $_POST["nome"];
