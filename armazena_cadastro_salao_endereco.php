@@ -25,7 +25,7 @@ $endereco->finalAddress = $endereco->rua . ', ' . $endereco->numero . ' - ' . $e
 $endereco->idSalao = $_SESSION["cnpj"];
 $endereco->nomeFantasiaSalao = $_SESSION["NomeFantasiaSalao"];    
 
-$urlMapa ="https://maps.googleapis.com/maps/api/geocode/json?address=". rawurlencode($endereco->finalAddress)."&key=AIzaSyBaXzV-gTnX1vMaX8wdmHVf8neWMclcvQU";
+$urlMapa ="https://maps.googleapis.com/maps/api/geocode/json?address=". rawurlencode($endereco->finalAddress)."&key=keydogoogle";
 
 $dadosMapa = file_get_contents($urlMapa);
 
